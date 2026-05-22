@@ -1,0 +1,83 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Responses\Events;
+
+final class ParticipantCampAllOutput
+{
+    public function __construct(
+        public readonly ?string $person = null,
+        public readonly ?string $idParticipantType = null,
+        public readonly ?string $participantType = null,
+        public readonly ?bool $isManual = null,
+        public readonly ?string $birthday = null,
+        public readonly ?int $age = null,
+        public readonly ?string $assurance = null,
+        public readonly ?string $street = null,
+        public readonly ?string $city = null,
+        public readonly ?string $postcode = null,
+        public readonly ?string $state = null,
+        public readonly ?string $fullAddress = null,
+        public readonly ?int $idUnit = null,
+        public readonly ?string $unit = null,
+        public readonly ?string $unitRegistrationNumber = null,
+        public readonly ?string $category = null,
+        public readonly ?bool $canDelete = null,
+        public readonly ?string $idCardNumber = null,
+        public readonly ?string $idCardValidTo = null,
+        public readonly ?string $accepted = null,
+        public readonly ?bool $isAccepted = null,
+        public readonly ?string $idCampEnrollState = null,
+        public readonly ?string $campEnrollState = null,
+        public readonly ?string $icon = null,
+        public readonly ?string $iconClass = null,
+        public readonly ?float $price = null,
+        public readonly ?int $idEventCampEnroll = null,
+        public readonly ?string $variableSymbol = null,
+        public readonly ?bool $isPaid = null,
+        public readonly ?string $membershipCategory = null,
+        public readonly ?string $participationTerm = null,
+        public readonly ?bool $participationTermDifferentThanEventCamp = null,
+        public readonly ?string $campOnlineLogin = null,
+        public readonly ?string $paymentType = null,
+    ) {}
+
+    public static function fromStdClass(\stdClass $obj): self
+    {
+        return new self(
+            person: isset($obj->{'Person'}) ? (string) $obj->{'Person'} : null,
+            idParticipantType: isset($obj->{'ID_ParticipantType'}) ? (string) $obj->{'ID_ParticipantType'} : null,
+            participantType: isset($obj->{'ParticipantType'}) ? (string) $obj->{'ParticipantType'} : null,
+            isManual: isset($obj->{'IsManual'}) ? (bool) $obj->{'IsManual'} : null,
+            birthday: isset($obj->{'Birthday'}) ? (string) $obj->{'Birthday'} : null,
+            age: isset($obj->{'Age'}) ? (int) $obj->{'Age'} : null,
+            assurance: isset($obj->{'Assurance'}) ? (string) $obj->{'Assurance'} : null,
+            street: isset($obj->{'Street'}) ? (string) $obj->{'Street'} : null,
+            city: isset($obj->{'City'}) ? (string) $obj->{'City'} : null,
+            postcode: isset($obj->{'Postcode'}) ? (string) $obj->{'Postcode'} : null,
+            state: isset($obj->{'State'}) ? (string) $obj->{'State'} : null,
+            fullAddress: isset($obj->{'FullAddress'}) ? (string) $obj->{'FullAddress'} : null,
+            idUnit: isset($obj->{'ID_Unit'}) ? (int) $obj->{'ID_Unit'} : null,
+            unit: isset($obj->{'Unit'}) ? (string) $obj->{'Unit'} : null,
+            unitRegistrationNumber: isset($obj->{'UnitRegistrationNumber'}) ? (string) $obj->{'UnitRegistrationNumber'} : null,
+            category: isset($obj->{'Category'}) ? (string) $obj->{'Category'} : null,
+            canDelete: isset($obj->{'CanDelete'}) ? (bool) $obj->{'CanDelete'} : null,
+            idCardNumber: isset($obj->{'IdCardNumber'}) ? (string) $obj->{'IdCardNumber'} : null,
+            idCardValidTo: isset($obj->{'IdCardValidTo'}) ? (string) $obj->{'IdCardValidTo'} : null,
+            accepted: isset($obj->{'Accepted'}) ? (string) $obj->{'Accepted'} : null,
+            isAccepted: isset($obj->{'IsAccepted'}) ? (bool) $obj->{'IsAccepted'} : null,
+            idCampEnrollState: isset($obj->{'ID_CampEnrollState'}) ? (string) $obj->{'ID_CampEnrollState'} : null,
+            campEnrollState: isset($obj->{'CampEnrollState'}) ? (string) $obj->{'CampEnrollState'} : null,
+            icon: isset($obj->{'Icon'}) ? (string) $obj->{'Icon'} : null,
+            iconClass: isset($obj->{'IconClass'}) ? (string) $obj->{'IconClass'} : null,
+            price: isset($obj->{'Price'}) ? (float) $obj->{'Price'} : null,
+            idEventCampEnroll: isset($obj->{'ID_EventCampEnroll'}) ? (int) $obj->{'ID_EventCampEnroll'} : null,
+            variableSymbol: isset($obj->{'VariableSymbol'}) ? (string) $obj->{'VariableSymbol'} : null,
+            isPaid: isset($obj->{'IsPaid'}) ? (bool) $obj->{'IsPaid'} : null,
+            membershipCategory: isset($obj->{'MembershipCategory'}) ? (string) $obj->{'MembershipCategory'} : null,
+            participationTerm: isset($obj->{'ParticipationTerm'}) ? (string) $obj->{'ParticipationTerm'} : null,
+            participationTermDifferentThanEventCamp: isset($obj->{'ParticipationTermDifferentThanEventCamp'}) ? (bool) $obj->{'ParticipationTermDifferentThanEventCamp'} : null,
+            campOnlineLogin: isset($obj->{'CampOnlineLogin'}) ? (string) $obj->{'CampOnlineLogin'} : null,
+            paymentType: isset($obj->{'PaymentType'}) ? (string) $obj->{'PaymentType'} : null,
+        );
+    }
+}

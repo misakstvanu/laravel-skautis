@@ -1,0 +1,21 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Requests\UserManagement;
+
+final class UserAuthenticationDetailFormInput
+{
+    public function __construct(
+        public readonly ?int $idUser = null,
+    ) {}
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return array_filter(
+            [
+            'ID_User' => $this->idUser,
+            ],
+            fn (mixed $v): bool => $v !== null,
+        );
+    }
+}

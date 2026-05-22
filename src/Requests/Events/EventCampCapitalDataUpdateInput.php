@@ -1,0 +1,93 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Requests\Events;
+
+final class EventCampCapitalDataUpdateInput
+{
+    public function __construct(
+        public readonly ?int $id = null,
+        public readonly ?int $idEventCamp = null,
+        public readonly ?string $eventCamp = null,
+        public readonly ?string $startDate = null,
+        public readonly ?string $endDate = null,
+        public readonly ?float $gpsLatitude = null,
+        public readonly ?float $gpsLongitude = null,
+        public readonly ?string $price = null,
+        public readonly ?string $estimateDotation = null,
+        public readonly ?int $estimateCount = null,
+        public readonly ?bool $isAutoComputed = null,
+        public readonly ?string $description = null,
+        public readonly ?string $dateGenerated = null,
+        public readonly ?string $personGenerated = null,
+        public readonly ?string $dateSent = null,
+        public readonly ?int $idPersonSent = null,
+        public readonly ?string $personSent = null,
+        public readonly ?int $idPersonCorrection = null,
+        public readonly ?string $personCorrection = null,
+        public readonly ?string $dateSentCorrection = null,
+        public readonly ?string $map = null,
+        public readonly ?string $projectCode = null,
+        public readonly ?int $idEventCampCity = null,
+        public readonly ?string $eventCampCity = null,
+        public readonly ?int $cityZfoValue = null,
+        public readonly ?int $idEventCampRegion = null,
+        public readonly ?string $eventCampRegion = null,
+        public readonly ?int $regionZfoValue = null,
+        public readonly ?int $idEventCampZfoType = null,
+        public readonly ?string $eventCampZfoType = null,
+        public readonly ?int $zfoTypeZfoValue = null,
+        public readonly ?int $idEventCampForm = null,
+        public readonly ?string $eventCampForm = null,
+        public readonly ?int $formZfoValue = null,
+        public readonly ?int $idEventCampAccommodationForm = null,
+        public readonly ?string $eventCampAccommodationForm = null,
+        public readonly ?int $accommodationFormZfoValue = null,
+    ) {}
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return array_filter(
+            [
+            'ID' => $this->id,
+            'ID_EventCamp' => $this->idEventCamp,
+            'EventCamp' => $this->eventCamp,
+            'StartDate' => $this->startDate,
+            'EndDate' => $this->endDate,
+            'GpsLatitude' => $this->gpsLatitude,
+            'GpsLongitude' => $this->gpsLongitude,
+            'Price' => $this->price,
+            'EstimateDotation' => $this->estimateDotation,
+            'EstimateCount' => $this->estimateCount,
+            'IsAutoComputed' => $this->isAutoComputed,
+            'Description' => $this->description,
+            'DateGenerated' => $this->dateGenerated,
+            'PersonGenerated' => $this->personGenerated,
+            'DateSent' => $this->dateSent,
+            'ID_PersonSent' => $this->idPersonSent,
+            'PersonSent' => $this->personSent,
+            'ID_PersonCorrection' => $this->idPersonCorrection,
+            'PersonCorrection' => $this->personCorrection,
+            'DateSentCorrection' => $this->dateSentCorrection,
+            'Map' => $this->map,
+            'ProjectCode' => $this->projectCode,
+            'ID_EventCampCity' => $this->idEventCampCity,
+            'EventCampCity' => $this->eventCampCity,
+            'CityZfoValue' => $this->cityZfoValue,
+            'ID_EventCampRegion' => $this->idEventCampRegion,
+            'EventCampRegion' => $this->eventCampRegion,
+            'RegionZfoValue' => $this->regionZfoValue,
+            'ID_EventCampZfoType' => $this->idEventCampZfoType,
+            'EventCampZfoType' => $this->eventCampZfoType,
+            'ZfoTypeZfoValue' => $this->zfoTypeZfoValue,
+            'ID_EventCampForm' => $this->idEventCampForm,
+            'EventCampForm' => $this->eventCampForm,
+            'FormZfoValue' => $this->formZfoValue,
+            'ID_EventCampAccommodationForm' => $this->idEventCampAccommodationForm,
+            'EventCampAccommodationForm' => $this->eventCampAccommodationForm,
+            'AccommodationFormZfoValue' => $this->accommodationFormZfoValue,
+            ],
+            fn (mixed $v): bool => $v !== null,
+        );
+    }
+}

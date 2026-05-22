@@ -1,0 +1,40 @@
+{
+    "name": "misakstvanu/laravel-skautis",
+    "description": "Object-oriented Laravel package for all SkautIS webservice operations.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "illuminate/support": "^12.0|^13.0",
+        "skautis/skautis": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Misakstvanu\\LaravelSkautis\\": "src/",
+            "Misakstvanu\\LaravelSkautis\\Requests\\": "src/Requests/",
+            "Misakstvanu\\LaravelSkautis\\Responses\\": "src/Responses/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Misakstvanu\\LaravelSkautis\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Misakstvanu\\LaravelSkautis\\LaravelSkautisServiceProvider"
+            ],
+            "aliases": {
+                "SkautisServices": "Misakstvanu\\LaravelSkautis\\Facades\\SkautisServices"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^12.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "version": "1.0.0"
+}

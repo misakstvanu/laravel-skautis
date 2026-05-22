@@ -1,0 +1,21 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Requests\Material;
+
+final class WarehouseItemDetailInput
+{
+    public function __construct(
+        public readonly ?int $id = null,
+    ) {}
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return array_filter(
+            [
+            'ID' => $this->id,
+            ],
+            fn (mixed $v): bool => $v !== null,
+        );
+    }
+}

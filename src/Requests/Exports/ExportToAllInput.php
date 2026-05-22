@@ -1,0 +1,23 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Requests\Exports;
+
+final class ExportToAllInput
+{
+    public function __construct(
+        public readonly ?int $idExport = null,
+        public readonly ?int $idPerson = null,
+    ) {}
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return array_filter(
+            [
+            'ID_Export' => $this->idExport,
+            'ID_Person' => $this->idPerson,
+            ],
+            fn (mixed $v): bool => $v !== null,
+        );
+    }
+}

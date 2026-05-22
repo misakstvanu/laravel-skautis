@@ -1,0 +1,83 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Responses\Grants;
+
+final class GrantAdvanceAllPaymentsOutput
+{
+    public function __construct(
+        public readonly ?string $idLogin = null,
+        public readonly ?int $id = null,
+        public readonly ?int $idGrant = null,
+        public readonly ?int $idEventEducationTerm = null,
+        public readonly ?string $eventEducationTerm = null,
+        public readonly ?float $amount = null,
+        public readonly ?string $paidDate = null,
+        public readonly ?string $issueDate = null,
+        public readonly ?string $idAdvancePeriod = null,
+        public readonly ?string $advancePeriod = null,
+        public readonly ?string $idAdvanceState = null,
+        public readonly ?string $advanceState = null,
+        public readonly ?string $insertedDate = null,
+        public readonly ?int $year = null,
+        public readonly ?string $note = null,
+        public readonly ?float $requestedAmount = null,
+        public readonly ?int $termDays = null,
+        public readonly ?string $key = null,
+        public readonly ?string $moneyNumber = null,
+        public readonly ?int $idEvent = null,
+        public readonly ?int $idEventEducation = null,
+        public readonly ?int $idUnit = null,
+        public readonly ?string $unit = null,
+        public readonly ?string $registrationNumber = null,
+        public readonly ?string $code = null,
+        public readonly ?string $idGrantAdvanceType = null,
+        public readonly ?string $grantAdvanceType = null,
+        public readonly ?string $grantAdvanceTypeShort = null,
+        public readonly ?string $grantAdvanceTypeNote = null,
+        public readonly ?string $advanceStateShort = null,
+        public readonly ?string $idGrantType = null,
+        public readonly ?string $grantType = null,
+        public readonly ?string $displayName = null,
+        public readonly ?int $idGrantProject = null,
+    ) {}
+
+    public static function fromStdClass(\stdClass $obj): self
+    {
+        return new self(
+            idLogin: isset($obj->{'ID_Login'}) ? (string) $obj->{'ID_Login'} : null,
+            id: isset($obj->{'ID'}) ? (int) $obj->{'ID'} : null,
+            idGrant: isset($obj->{'ID_Grant'}) ? (int) $obj->{'ID_Grant'} : null,
+            idEventEducationTerm: isset($obj->{'ID_EventEducationTerm'}) ? (int) $obj->{'ID_EventEducationTerm'} : null,
+            eventEducationTerm: isset($obj->{'EventEducationTerm'}) ? (string) $obj->{'EventEducationTerm'} : null,
+            amount: isset($obj->{'Amount'}) ? (float) $obj->{'Amount'} : null,
+            paidDate: isset($obj->{'PaidDate'}) ? (string) $obj->{'PaidDate'} : null,
+            issueDate: isset($obj->{'IssueDate'}) ? (string) $obj->{'IssueDate'} : null,
+            idAdvancePeriod: isset($obj->{'ID_AdvancePeriod'}) ? (string) $obj->{'ID_AdvancePeriod'} : null,
+            advancePeriod: isset($obj->{'AdvancePeriod'}) ? (string) $obj->{'AdvancePeriod'} : null,
+            idAdvanceState: isset($obj->{'ID_AdvanceState'}) ? (string) $obj->{'ID_AdvanceState'} : null,
+            advanceState: isset($obj->{'AdvanceState'}) ? (string) $obj->{'AdvanceState'} : null,
+            insertedDate: isset($obj->{'InsertedDate'}) ? (string) $obj->{'InsertedDate'} : null,
+            year: isset($obj->{'Year'}) ? (int) $obj->{'Year'} : null,
+            note: isset($obj->{'Note'}) ? (string) $obj->{'Note'} : null,
+            requestedAmount: isset($obj->{'RequestedAmount'}) ? (float) $obj->{'RequestedAmount'} : null,
+            termDays: isset($obj->{'TermDays'}) ? (int) $obj->{'TermDays'} : null,
+            key: isset($obj->{'Key'}) ? (string) $obj->{'Key'} : null,
+            moneyNumber: isset($obj->{'MoneyNumber'}) ? (string) $obj->{'MoneyNumber'} : null,
+            idEvent: isset($obj->{'ID_Event'}) ? (int) $obj->{'ID_Event'} : null,
+            idEventEducation: isset($obj->{'ID_EventEducation'}) ? (int) $obj->{'ID_EventEducation'} : null,
+            idUnit: isset($obj->{'ID_Unit'}) ? (int) $obj->{'ID_Unit'} : null,
+            unit: isset($obj->{'Unit'}) ? (string) $obj->{'Unit'} : null,
+            registrationNumber: isset($obj->{'RegistrationNumber'}) ? (string) $obj->{'RegistrationNumber'} : null,
+            code: isset($obj->{'Code'}) ? (string) $obj->{'Code'} : null,
+            idGrantAdvanceType: isset($obj->{'ID_GrantAdvanceType'}) ? (string) $obj->{'ID_GrantAdvanceType'} : null,
+            grantAdvanceType: isset($obj->{'GrantAdvanceType'}) ? (string) $obj->{'GrantAdvanceType'} : null,
+            grantAdvanceTypeShort: isset($obj->{'GrantAdvanceTypeShort'}) ? (string) $obj->{'GrantAdvanceTypeShort'} : null,
+            grantAdvanceTypeNote: isset($obj->{'GrantAdvanceTypeNote'}) ? (string) $obj->{'GrantAdvanceTypeNote'} : null,
+            advanceStateShort: isset($obj->{'AdvanceStateShort'}) ? (string) $obj->{'AdvanceStateShort'} : null,
+            idGrantType: isset($obj->{'ID_GrantType'}) ? (string) $obj->{'ID_GrantType'} : null,
+            grantType: isset($obj->{'GrantType'}) ? (string) $obj->{'GrantType'} : null,
+            displayName: isset($obj->{'DisplayName'}) ? (string) $obj->{'DisplayName'} : null,
+            idGrantProject: isset($obj->{'ID_GrantProject'}) ? (int) $obj->{'ID_GrantProject'} : null,
+        );
+    }
+}

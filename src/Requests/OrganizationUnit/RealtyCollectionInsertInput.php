@@ -1,0 +1,93 @@
+<?php
+
+namespace Misakstvanu\LaravelSkautis\Requests\OrganizationUnit;
+
+final class RealtyCollectionInsertInput
+{
+    public function __construct(
+        public readonly ?string $idTempFilePhoto = null,
+        public readonly ?string $fotogalleryUrl = null,
+        public readonly ?string $realtyDisplayName = null,
+        public readonly ?string $realtyDescription = null,
+        public readonly ?bool $realtyIsPower = null,
+        public readonly ?string $idRealtyTempFilePhoto = null,
+        public readonly ?string $realtyFotogalleryUrl = null,
+        public readonly ?string $idRealtyOwnerType = null,
+        public readonly ?string $realtyOwnerTypeNote = null,
+        public readonly ?string $realtyNote = null,
+        public readonly ?string $idRealtyRegisterType = null,
+        public readonly ?int $idUnit = null,
+        public readonly ?int $idUser = null,
+        public readonly ?string $displayName = null,
+        public readonly ?string $description = null,
+        public readonly ?string $web = null,
+        public readonly ?bool $hasAddress = null,
+        public readonly ?string $street = null,
+        public readonly ?string $city = null,
+        public readonly ?string $postcode = null,
+        public readonly ?string $district = null,
+        public readonly ?float $gpsLatitude = null,
+        public readonly ?float $gpsLongitude = null,
+        public readonly ?string $string = null,
+        public readonly ?string $transportDescription = null,
+        public readonly ?string $pointsOfInterest = null,
+        public readonly ?string $note = null,
+        public readonly ?int $idRegion = null,
+        public readonly ?string $parcelNumber = null,
+        public readonly ?string $registerCity = null,
+        public readonly ?string $cadastralArea = null,
+        public readonly ?int $lVNumber = null,
+        public readonly ?int $acreage = null,
+        public readonly ?string $parcelType = null,
+        public readonly ?string $landType = null,
+        public readonly ?float $realtyGpsLatitude = null,
+        public readonly ?float $realtyGpsLongitude = null,
+    ) {}
+
+    /** @return array<string, mixed> */
+    public function toArray(): array
+    {
+        return array_filter(
+            [
+            'ID_TempFilePhoto' => $this->idTempFilePhoto,
+            'FotogalleryUrl' => $this->fotogalleryUrl,
+            'RealtyDisplayName' => $this->realtyDisplayName,
+            'RealtyDescription' => $this->realtyDescription,
+            'RealtyIsPower' => $this->realtyIsPower,
+            'ID_RealtyTempFilePhoto' => $this->idRealtyTempFilePhoto,
+            'RealtyFotogalleryUrl' => $this->realtyFotogalleryUrl,
+            'ID_RealtyOwnerType' => $this->idRealtyOwnerType,
+            'RealtyOwnerTypeNote' => $this->realtyOwnerTypeNote,
+            'RealtyNote' => $this->realtyNote,
+            'ID_RealtyRegisterType' => $this->idRealtyRegisterType,
+            'ID_Unit' => $this->idUnit,
+            'ID_User' => $this->idUser,
+            'DisplayName' => $this->displayName,
+            'Description' => $this->description,
+            'Web' => $this->web,
+            'HasAddress' => $this->hasAddress,
+            'Street' => $this->street,
+            'City' => $this->city,
+            'Postcode' => $this->postcode,
+            'District' => $this->district,
+            'GpsLatitude' => $this->gpsLatitude,
+            'GpsLongitude' => $this->gpsLongitude,
+            'string' => $this->string,
+            'TransportDescription' => $this->transportDescription,
+            'PointsOfInterest' => $this->pointsOfInterest,
+            'Note' => $this->note,
+            'ID_Region' => $this->idRegion,
+            'ParcelNumber' => $this->parcelNumber,
+            'RegisterCity' => $this->registerCity,
+            'CadastralArea' => $this->cadastralArea,
+            'LVNumber' => $this->lVNumber,
+            'Acreage' => $this->acreage,
+            'ParcelType' => $this->parcelType,
+            'LandType' => $this->landType,
+            'RealtyGpsLatitude' => $this->realtyGpsLatitude,
+            'RealtyGpsLongitude' => $this->realtyGpsLongitude,
+            ],
+            fn (mixed $v): bool => $v !== null,
+        );
+    }
+}
