@@ -65,10 +65,13 @@ use Misakstvanu\LaravelSkautis\Requests\Events\DelegateUpdateInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\DistrictAllInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EducationPersonDaysAllInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EducationPersonDaysUpdateInput;
+use Misakstvanu\LaravelSkautis\Requests\Events\EventAllInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventAllPersonInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventAllPersonParticipationInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventCampAccommodationFormAllInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventCampAllInput;
+use Misakstvanu\LaravelSkautis\Requests\Events\EventCampBudgetAllInput;
+use Misakstvanu\LaravelSkautis\Requests\Events\EventCampBudgetUpdateInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventCampAllMessageInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventCampAllParentInput;
 use Misakstvanu\LaravelSkautis\Requests\Events\EventCampAllZipInput;
@@ -505,9 +508,11 @@ use Misakstvanu\LaravelSkautis\Responses\Events\DelegateDetailOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\DelegateStateAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\DistrictAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EducationPersonDaysAllOutput;
+use Misakstvanu\LaravelSkautis\Responses\Events\EventAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventAllPersonOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventAllPersonParticipationOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventCampAccommodationFormAllOutput;
+use Misakstvanu\LaravelSkautis\Responses\Events\EventCampBudgetAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventCampAllMessageOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventCampAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Events\EventCampAllParentOutput;
@@ -744,7 +749,7 @@ use Misakstvanu\LaravelSkautis\Responses\Events\TransportAllOutput;
 /**
  * Webová služba pro práci s akcemi (sněmy apod.)
  */
-final class EventsService
+class EventsService
 {
     public const SERVICE_NAME = 'Events';
 
@@ -1313,6 +1318,16 @@ final class EventsService
     }
 
     /**
+     * Načst seznam akcí jednotky
+     * @return EventAllOutput[]
+     */
+    public function EventAll(EventAllInput $input = new EventAllInput()): array
+    {
+        $response = $this->executor->call(self::SERVICE_NAME, 'EventAll', OperationRequest::from($input->toArray()));
+        return array_map(fn (\stdClass $item): EventAllOutput => EventAllOutput::fromStdClass($item), $response->objects());
+    }
+
+    /**
      * Načíst seznam akcí osoby
      * @return EventAllPersonOutput[]
      */
@@ -1350,6 +1365,24 @@ final class EventsService
     {
         $response = $this->executor->call(self::SERVICE_NAME, 'EventCampAll', OperationRequest::from($input->toArray()));
         return array_map(fn (\stdClass $item): EventCampAllOutput => EventCampAllOutput::fromStdClass($item), $response->objects());
+    }
+
+    /**
+     * Načst rozpočet tábora
+     * @return EventCampBudgetAllOutput[]
+     */
+    public function EventCampBudgetAll(EventCampBudgetAllInput $input = new EventCampBudgetAllInput()): array
+    {
+        $response = $this->executor->call(self::SERVICE_NAME, 'EventCampBudgetAll', OperationRequest::from($input->toArray()));
+        return array_map(fn (\stdClass $item): EventCampBudgetAllOutput => EventCampBudgetAllOutput::fromStdClass($item), $response->objects());
+    }
+
+    /**
+     * Aktualizovat položku rozpočtu tábora
+     */
+    public function EventCampBudgetUpdate(EventCampBudgetUpdateInput $input = new EventCampBudgetUpdateInput()): void
+    {
+        $this->executor->call(self::SERVICE_NAME, 'EventCampBudgetUpdate', OperationRequest::from($input->toArray()));
     }
 
     /**

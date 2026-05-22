@@ -2,7 +2,7 @@
 
 namespace Misakstvanu\LaravelSkautis\Responses\Events;
 
-final class EventDetailOutput
+final class EventAllOutput
 {
     public function __construct(
         public readonly ?int $id = null,
@@ -12,17 +12,12 @@ final class EventDetailOutput
         public readonly ?string $startDate = null,
         public readonly ?string $endDate = null,
         public readonly ?string $location = null,
-        public readonly ?string $note = null,
         public readonly ?string $idEventState = null,
         public readonly ?string $eventState = null,
         public readonly ?string $idEventType = null,
         public readonly ?string $eventType = null,
-        public readonly ?string $idEventScope = null,
-        public readonly ?string $eventScope = null,
-        public readonly ?int $idPersonLeader = null,
-        public readonly ?string $personLeader = null,
         public readonly ?string $registrationNumber = null,
-        public readonly ?string $urlDetail = null,
+        public readonly ?string $personLeader = null,
     ) {}
 
     public static function fromStdClass(\stdClass $obj): self
@@ -35,17 +30,13 @@ final class EventDetailOutput
             startDate: isset($obj->{'StartDate'}) ? (string) $obj->{'StartDate'} : null,
             endDate: isset($obj->{'EndDate'}) ? (string) $obj->{'EndDate'} : null,
             location: isset($obj->{'Location'}) ? (string) $obj->{'Location'} : null,
-            note: isset($obj->{'Note'}) ? (string) $obj->{'Note'} : null,
             idEventState: isset($obj->{'ID_EventState'}) ? (string) $obj->{'ID_EventState'} : null,
             eventState: isset($obj->{'EventState'}) ? (string) $obj->{'EventState'} : null,
             idEventType: isset($obj->{'ID_EventType'}) ? (string) $obj->{'ID_EventType'} : null,
             eventType: isset($obj->{'EventType'}) ? (string) $obj->{'EventType'} : null,
-            idEventScope: isset($obj->{'ID_EventScope'}) ? (string) $obj->{'ID_EventScope'} : null,
-            eventScope: isset($obj->{'EventScope'}) ? (string) $obj->{'EventScope'} : null,
-            idPersonLeader: isset($obj->{'ID_PersonLeader'}) ? (int) $obj->{'ID_PersonLeader'} : null,
-            personLeader: isset($obj->{'PersonLeader'}) ? (string) $obj->{'PersonLeader'} : null,
             registrationNumber: isset($obj->{'RegistrationNumber'}) ? (string) $obj->{'RegistrationNumber'} : null,
-            urlDetail: isset($obj->{'UrlDetail'}) ? (string) $obj->{'UrlDetail'} : null,
+            personLeader: isset($obj->{'PersonLeader'}) ? (string) $obj->{'PersonLeader'} : null,
         );
     }
 }
+

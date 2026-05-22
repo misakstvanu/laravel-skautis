@@ -177,7 +177,7 @@ use Misakstvanu\LaravelSkautis\Responses\UserManagement\WeekDayAllOutput;
 /**
  * Webová služba pro práci s uživateli (zakládání, přidělování rolí, přihlašování apod.)
  */
-final class UserManagementService
+class UserManagementService
 {
     public const SERVICE_NAME = 'UserManagement';
 

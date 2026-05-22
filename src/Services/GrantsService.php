@@ -66,6 +66,8 @@ use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDeleteInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailEventEducationInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailGrantStatementInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailInput;
+use Misakstvanu\LaravelSkautis\Requests\Grants\GrantBudgetAllInput;
+use Misakstvanu\LaravelSkautis\Requests\Grants\GrantBudgetUpdateInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailParticipationOverviewInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailSimpleInput;
 use Misakstvanu\LaravelSkautis\Requests\Grants\GrantDetailYearsInput;
@@ -210,6 +212,7 @@ use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDecisionInsertOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailEventEducationOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailGrantStatementOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailOutput;
+use Misakstvanu\LaravelSkautis\Responses\Grants\GrantBudgetAllOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailParticipationOverviewOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailSimpleOutput;
 use Misakstvanu\LaravelSkautis\Responses\Grants\GrantDetailYearsOutput;
@@ -276,7 +279,7 @@ use Misakstvanu\LaravelSkautis\Responses\Grants\StatementInsertOutput;
 /**
  * Webová služba pro práci s dotacemi
  */
-final class GrantsService
+class GrantsService
 {
     public const SERVICE_NAME = 'Grants';
 
@@ -825,6 +828,24 @@ final class GrantsService
     {
         $response = $this->executor->call(self::SERVICE_NAME, 'GrantDetail', OperationRequest::from($input->toArray()));
         return GrantDetailOutput::fromStdClass($response->firstObject() ?? new \stdClass());
+    }
+
+    /**
+     * Načst položky rozpočtu grantu
+     * @return GrantBudgetAllOutput[]
+     */
+    public function GrantBudgetAll(GrantBudgetAllInput $input = new GrantBudgetAllInput()): array
+    {
+        $response = $this->executor->call(self::SERVICE_NAME, 'GrantBudgetAll', OperationRequest::from($input->toArray()));
+        return array_map(fn (\stdClass $item): GrantBudgetAllOutput => GrantBudgetAllOutput::fromStdClass($item), $response->objects());
+    }
+
+    /**
+     * Aktualizovat položku rozpočtu grantu
+     */
+    public function GrantBudgetUpdate(GrantBudgetUpdateInput $input = new GrantBudgetUpdateInput()): void
+    {
+        $this->executor->call(self::SERVICE_NAME, 'GrantBudgetUpdate', OperationRequest::from($input->toArray()));
     }
 
     /**

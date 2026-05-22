@@ -924,7 +924,7 @@ use Misakstvanu\LaravelSkautis\Responses\OrganizationUnit\UnitTypeAllOutput;
 /**
  * Webová služba pro práci s organizačními jednotkami a osobami
  */
-final class OrganizationUnitService
+class OrganizationUnitService
 {
     public const SERVICE_NAME = 'OrganizationUnit';
 
