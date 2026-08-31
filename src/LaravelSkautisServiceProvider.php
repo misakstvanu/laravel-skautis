@@ -3,6 +3,7 @@
 namespace Misakstvanu\LaravelSkautis;
 
 use Illuminate\Support\ServiceProvider;
+use Misakstvanu\LaravelSkautis\Contracts\OperationExecutorInterface;
 use Misakstvanu\LaravelSkautis\Support\LaravelSessionAdapter;
 use Skautis\Config;
 use Skautis\Skautis;
@@ -44,7 +45,8 @@ class LaravelSkautisServiceProvider extends ServiceProvider
             $user = new SkautisUser($wsdlManager, $sessionAdapter);
             return new Skautis($wsdlManager, $user);
         });
-        $this->app->singleton(OperationExecutor::class);
+        $this->app->singleton(OperationExecutor::class, fn ($app) => new OperationExecutor($app->make(Skautis::class)));
+        $this->app->alias(OperationExecutor::class, OperationExecutorInterface::class);
         $this->app->singleton(ApplicationManagementService::class);
         $this->app->singleton(ContentManagementService::class);
         $this->app->singleton(DocumentStorageService::class);

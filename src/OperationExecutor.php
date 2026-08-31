@@ -1,5 +1,6 @@
 <?php
 namespace Misakstvanu\LaravelSkautis;
+use Misakstvanu\LaravelSkautis\Contracts\OperationExecutorInterface;
 use Misakstvanu\LaravelSkautis\Data\OperationRequest;
 use Misakstvanu\LaravelSkautis\Data\OperationResponse;
 use Skautis\Skautis;
@@ -8,7 +9,7 @@ use Skautis\Wsdl\WsdlException;
 /**
  * Executes SkautIS SOAP operations via the underlying Skautis PHP library.
  */
-final class OperationExecutor
+class OperationExecutor implements OperationExecutorInterface
 {
     public function __construct(private readonly Skautis $skautis) {}
     public function call(string $service, string $operation, OperationRequest $request): OperationResponse
