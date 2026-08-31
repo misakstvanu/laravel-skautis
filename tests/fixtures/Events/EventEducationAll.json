@@ -1,0 +1,18 @@
+[
+    {
+        "ID": 82001,
+        "DisplayName": "Čekatelský kurz – jarní část",
+        "StartDate": "2026-04-11T00:00:00",
+        "EndDate": "2026-04-13T00:00:00",
+        "ID_EventEducationState": "closed",
+        "EventEducationState": "Uzavřený"
+    },
+    {
+        "ID": 82002,
+        "DisplayName": "Zdravotnický kurz",
+        "StartDate": "2026-11-07T00:00:00",
+        "EndDate": "2026-11-09T00:00:00",
+        "ID_EventEducationState": "draft",
+        "EventEducationState": "Rozpracovaný"
+    }
+]

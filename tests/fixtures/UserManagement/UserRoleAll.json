@@ -1,0 +1,23 @@
+[
+    {
+        "ID": 900001,
+        "ID_Unit": 60001,
+        "Unit": "12. oddíl Střelka",
+        "DisplayName": "Hospodář",
+        "Key": "hospodar"
+    },
+    {
+        "ID": 900002,
+        "ID_Unit": 60002,
+        "Unit": "3. oddíl Vlčata",
+        "DisplayName": "Hospodář",
+        "Key": "hospodar"
+    },
+    {
+        "ID": 900003,
+        "ID_Unit": 60000,
+        "Unit": "Středisko Modrá kotva Brno",
+        "DisplayName": "Člen",
+        "Key": "clen"
+    }
+]

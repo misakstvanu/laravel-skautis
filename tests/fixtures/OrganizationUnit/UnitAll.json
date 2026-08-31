@@ -1,0 +1,26 @@
+[
+    {
+        "ID": 60000,
+        "DisplayName": "Středisko Modrá kotva Brno",
+        "RegistrationNumber": "614.02",
+        "ID_UnitType": "stredisko",
+        "UnitType": "Středisko",
+        "Location": "Brno"
+    },
+    {
+        "ID": 60001,
+        "DisplayName": "12. oddíl Střelka",
+        "RegistrationNumber": "614.02.12",
+        "ID_UnitType": "oddil",
+        "UnitType": "Oddíl",
+        "Location": "Brno-Žabovřesky"
+    },
+    {
+        "ID": 60002,
+        "DisplayName": "3. oddíl Vlčata",
+        "RegistrationNumber": "614.02.03",
+        "ID_UnitType": "oddil",
+        "UnitType": "Oddíl",
+        "Location": "Brno-Žabovřesky"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "ID": 80001,
+        "DisplayName": "Podzimní výprava Rokytná",
+        "ID_Unit": 60001,
+        "StartDate": "2026-10-03T00:00:00",
+        "EndDate": "2026-10-05T00:00:00",
+        "Location": "Rokytná",
+        "ID_EventState": "draft",
+        "EventState": "Rozpracovaná"
+    },
+    {
+        "ID": 80002,
+        "DisplayName": "Oddílová schůzka – říjen",
+        "ID_Unit": 60001,
+        "StartDate": "2026-10-10T00:00:00",
+        "EndDate": "2026-10-10T00:00:00",
+        "Location": "Klubovna Střelka",
+        "ID_EventState": "closed",
+        "EventState": "Uzavřená"
+    },
+    {
+        "ID": 80003,
+        "DisplayName": "Vodácký víkend Sázava",
+        "ID_Unit": 60001,
+        "StartDate": "2026-09-12T00:00:00",
+        "EndDate": "2026-09-14T00:00:00",
+        "Location": "Týnec nad Sázavou",
+        "ID_EventState": "closed",
+        "EventState": "Uzavřená"
+    },
+    {
+        "ID": 80004,
+        "DisplayName": "Sběr papíru",
+        "ID_Unit": 60002,
+        "StartDate": "2026-06-08T00:00:00",
+        "EndDate": "2026-06-08T00:00:00",
+        "Location": "Brno-Žabovřesky",
+        "ID_EventState": "closed",
+        "EventState": "Uzavřená"
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "ID_ContactType": "email_hlavni",
+        "Value": "jan.novak@skaut.cz",
+        "DisplayValue": "jan.novak@skaut.cz"
+    },
+    {
+        "ID_ContactType": "telefon_hlavni",
+        "Value": "+420 601 234 567",
+        "DisplayValue": "+420 601 234 567"
+    }
+]

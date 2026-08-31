@@ -1,0 +1,24 @@
+[
+    {
+        "ID": 81001,
+        "DisplayName": "Letní tábor Jestřebí",
+        "ID_Unit": 60001,
+        "RegistrationNumber": "614.02.12/2026/1",
+        "StartDate": "2026-07-04T00:00:00",
+        "EndDate": "2026-07-18T00:00:00",
+        "Location": "Jestřebí u Doks",
+        "ID_EventCampState": "closed",
+        "EventCampState": "Uzavřený"
+    },
+    {
+        "ID": 81002,
+        "DisplayName": "Putovní tábor Jeseníky",
+        "ID_Unit": 60002,
+        "RegistrationNumber": "614.02.03/2026/1",
+        "StartDate": "2026-08-09T00:00:00",
+        "EndDate": "2026-08-16T00:00:00",
+        "Location": "Jeseníky",
+        "ID_EventCampState": "draft",
+        "EventCampState": "Rozpracovaný"
+    }
+]
