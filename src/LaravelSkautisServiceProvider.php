@@ -3,8 +3,10 @@
 namespace Misakstvanu\LaravelSkautis;
 
 use Illuminate\Support\ServiceProvider;
+use InvalidArgumentException;
 use Misakstvanu\LaravelSkautis\Contracts\OperationExecutorInterface;
 use Misakstvanu\LaravelSkautis\Support\LaravelSessionAdapter;
+use Misakstvanu\LaravelSkautis\Testing\FakeOperationExecutor;
 use Skautis\Config;
 use Skautis\Skautis;
 use Skautis\User as SkautisUser;
@@ -45,7 +47,14 @@ class LaravelSkautisServiceProvider extends ServiceProvider
             $user = new SkautisUser($wsdlManager, $sessionAdapter);
             return new Skautis($wsdlManager, $user);
         });
-        $this->app->singleton(OperationExecutor::class, fn ($app) => new OperationExecutor($app->make(Skautis::class)));
+        $this->app->singleton(OperationExecutor::class, function ($app): OperationExecutor {
+            $driver = config('skautis.driver', 'soap');
+            return match ($driver) {
+                'soap' => new OperationExecutor($app->make(Skautis::class)),
+                'fake' => new FakeOperationExecutor(config('skautis.fixture_path') ?: __DIR__.'/../tests/fixtures'),
+                default => throw new InvalidArgumentException(sprintf('Unsupported SkautIS driver [%s]. Accepted values: soap|fake.', is_scalar($driver) ? (string) $driver : get_debug_type($driver))),
+            };
+        });
         $this->app->alias(OperationExecutor::class, OperationExecutorInterface::class);
         $this->app->singleton(ApplicationManagementService::class);
         $this->app->singleton(ContentManagementService::class);
