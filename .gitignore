@@ -1,1 +1,4 @@
 skautis-docs
+/vendor/
+/composer.lock
+.phpunit.result.cache
